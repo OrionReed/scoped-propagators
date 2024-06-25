@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES2021",
+    "composite": true,
+    "allowSyntheticDefaultImports": true,
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["src","vite.config.ts"],
+  "types": ["vite/client"]
+}
