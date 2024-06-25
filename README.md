@@ -1,24 +1,15 @@
-This repository shows how you might use [tldraw](https://github.com/tldraw/tldraw) together with the [yjs](https://yjs.dev) library. It also makes a good example for how to use tldraw with other backend services!
+# scoped proagators
+"Scoped propagators" are formed of a `scope` and a `propagator` which often looks like this: 
+`click { text: "foo" }`
 
-## Bootsrapping Locally
+The `scope` sets the events that cause propagation, such as clicks, ticks, or shape changes (not adding a scope will default to shape changes).
 
-To run the local development server, first clone this repo.
+The `propagator` is a JS object (or function which returns one) that is applied to the shape.
 
-Install dependencies:
+Notes:
+- shapes are passed both `from` and `to` shapes.
+- Shapes are flattened before being passed to the propagator, and unpacked on the other side. So properties live alongside the `x`, `y`, and `rotation` values (e.g. `{ x: 100, y: 100, text: "foo" }`).
 
-```bash
-npm i
-```
-
-Start the local development server:
-
-For macOS/Linux:
-```bash
-npm run dev
-```
-For Windows:
-```bash
-npm run dev:win
-```
-
-Open the example project at `localhost:5173`.
+Current Issues (probably should be fixed before putting out a demo):
+- cycles of `change` propagators cause infinite recursion.
+- `geo` scopes are currently fired for any shape change, this should be localised to spatially local changes.
