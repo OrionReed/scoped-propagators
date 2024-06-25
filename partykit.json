@@ -1,8 +1,0 @@
-{
-  "name": "tlkart",
-  "main": "src/server.ts",
-  "serve": {
-    "path": "dist"
-  },
-  "compatibilityDate": "2024-02-04"
-}
