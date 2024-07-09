@@ -1,4 +1,4 @@
-import { SpatialIndex } from "@/SpatialIndex"
+import { SpatialIndex } from "@/propagators/SpatialIndex"
 import { Editor, TLShape, TLShapeId, VecLike, polygonsIntersect } from "tldraw"
 
 export class Geo {

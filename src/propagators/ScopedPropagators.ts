@@ -1,10 +1,19 @@
-import { DeltaTime } from "@/DeltaTime"
-import { Geo } from "@/Geo"
-import { Edge, getArrowsFromShape, getEdge } from "@/tlgraph"
-import { isShapeOfType, updateProps } from "@/utils"
+import { DeltaTime } from "@/propagators/DeltaTime"
+import { Geo } from "@/propagators/Geo"
+import { Edge, getArrowsFromShape, getEdge } from "@/propagators/tlgraph"
+import { isShapeOfType, updateProps } from "@/propagators/utils"
 import { Editor, TLArrowShape, TLBinding, TLGroupShape, TLShape, TLShapeId } from "tldraw"
 
 type Prefix = 'click' | 'tick' | 'geo' | ''
+
+export function registerDefaultPropagators(editor: Editor) {
+  registerPropagators(editor, [
+    ChangePropagator,
+    ClickPropagator,
+    TickPropagator,
+    SpatialPropagator,
+  ])
+}
 
 function isPropagatorOfType(arrow: TLShape, prefix: Prefix) {
   if (!isShapeOfType<TLArrowShape>(arrow, 'arrow')) return false

@@ -1,4 +1,4 @@
-import { isShapeOfType } from "@/utils";
+import { isShapeOfType } from "@/propagators/utils";
 import { Editor, TLArrowBinding, TLArrowShape, TLShape, TLShapeId } from "tldraw";
 
 export interface Edge {

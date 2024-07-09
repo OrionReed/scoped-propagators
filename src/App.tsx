@@ -10,7 +10,7 @@ export default function YjsExample() {
 					MainMenu: CustomMainMenu,
 				}}
 				onMount={onMount}
-				persistenceKey='funcArrows'
+				persistenceKey='scoped-propagators'
 			/>
 		</div>
 	)
